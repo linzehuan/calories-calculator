@@ -113,13 +113,9 @@ public class CaloriesCalculator {
         if (isMate) {
             calories = mateCalculate(weight, feet, inches, age);
         } else {
-            calories = femaleCalculate(weight, feet, inches, age);
+            calories = new Person(weight, feet, inches, age).femaleCalculate(weight, feet, inches, age);
         }
         return calories;
-    }
-
-    private double femaleCalculate(Double weight, Double feet, Double inches, Double age) {
-        return new Person(weight, feet, inches, age).femaleCalculate(weight, feet, inches, age);
     }
 
     private double mateCalculate(Double weight, Double feet, Double inches, Double age) {
