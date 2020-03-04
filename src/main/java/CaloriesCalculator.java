@@ -114,7 +114,7 @@ public class CaloriesCalculator {
         if (isMate) {
             calories = person.calculate(weight, feet, inches, age);
         } else {
-            calories = person.femaleCalculate(weight, feet, inches, age);
+            calories = person.calculate(weight, feet, inches, age);
         }
         return calories;
     }
