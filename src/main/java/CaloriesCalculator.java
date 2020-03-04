@@ -96,18 +96,22 @@ public class CaloriesCalculator {
     }
 
     private void Calculate() {
+        Double weight = Double.valueOf(txtWeight.getText());
+        Double feet = Double.valueOf(txtFeet.getText());
+        Double inches = Double.valueOf(txtInches.getText());
+        Double age = Double.valueOf(txtAge.getText());
         if (rbtnMale.isSelected()) {
             txtCalories.setText(decimalFormat.format(66
-                    + (6.3 * Double.valueOf(txtWeight.getText()))
-                    + (12.9 * ((Double.valueOf(txtFeet.getText()) * 12)
-                    + Double.valueOf(txtInches.getText())))
-                    - (6.8 * Double.valueOf(txtAge.getText()))));
+                    + (6.3 * weight)
+                    + (12.9 * ((feet * 12)
+                    + inches))
+                    - (6.8 * age)));
         } else {
             txtCalories.setText(decimalFormat.format(655
-                    + (4.3 * Double.valueOf(txtWeight.getText()))
-                    + (4.7 * ((Double.valueOf(txtFeet.getText()) * 12)
-                    + Double.valueOf(txtInches.getText())))
-                    - (4.7 * Double.valueOf(txtAge.getText()))));
+                    + (4.3 * weight)
+                    + (4.7 * ((feet * 12)
+                    + inches))
+                    - (4.7 * age)));
         }
     }
 
