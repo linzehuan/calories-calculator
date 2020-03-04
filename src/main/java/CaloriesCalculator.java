@@ -34,23 +34,28 @@ public class CaloriesCalculator {
 
 		JPanel panelCalc = initPanelCalc();
 
-		JPanel panalCalories = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		panalCalories.add(new JLabel("Recommended Daily Amount:"));
-		txtCalories = new JTextField(8);
-		panalCalories.add(txtCalories);
-		
+		JPanel panelCalories = initPanelCalories();
+
 		Box vBox = Box.createVerticalBox();
 		vBox.add(panelRadio);
 		vBox.add(panelHeight);
 		vBox.add(panelWeight);
 		vBox.add(panelAge);
 		vBox.add(panelCalc);
-		vBox.add(panalCalories);		
+		vBox.add(panelCalories);
 		
 		jFrame.setContentPane(vBox);
 		jFrame.pack();
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
+	}
+
+	private JPanel initPanelCalories() {
+		JPanel panelCalories = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panelCalories.add(new JLabel("Recommended Daily Amount:"));
+		txtCalories = new JTextField(8);
+		panelCalories.add(txtCalories);
+		return panelCalories;
 	}
 
 	private JPanel initPanelCalc() {
