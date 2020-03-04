@@ -30,11 +30,7 @@ public class CaloriesCalculator {
 		JPanel panelWeight = initPanelWeight();
 
 
-		JPanel panelAge = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		panelAge.add(new JLabel("      Age:"));
-		txtAge = new JTextField("12",8);
-		panelAge.add(txtAge);
-		panelAge.add(new JLabel("year"));
+		JPanel panelAge = initPanelAge();
 
 		JPanel panalCalc = new JPanel(new FlowLayout(FlowLayout.LEFT));		
 		btnCalculate = new JButton("Calculate");
@@ -65,6 +61,15 @@ public class CaloriesCalculator {
 		jFrame.pack();
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
+	}
+
+	private JPanel initPanelAge() {
+		JPanel panelAge = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panelAge.add(new JLabel("      Age:"));
+		txtAge = new JTextField("12",8);
+		panelAge.add(txtAge);
+		panelAge.add(new JLabel("year"));
+		return panelAge;
 	}
 
 	private JPanel initPanelWeight() {
