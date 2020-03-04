@@ -47,14 +47,7 @@ public class CaloriesCalculator {
     private JPanel initPanelCalc() {
         JPanel panelCalc = new JPanel(new FlowLayout(FlowLayout.LEFT));
         btnCalculate = new JButton("Calculate");
-        btnCalculate.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                Calculate();
-            }
-
-        });
+        btnCalculate.addActionListener(event -> Calculate());
         panelCalc.add(btnCalculate);
         return panelCalc;
     }
