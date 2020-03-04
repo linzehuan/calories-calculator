@@ -16,10 +16,6 @@ public class FemalePerson extends Person {
                 - (4.7 * age);
     }
     public double femaleCalculate(Double weight, Double feet, Double inches, Double age) {
-        return 655
-                + (4.3 * weight)
-                + (4.7 * ((feet * 12)
-                + inches))
-                - (4.7 * age);
+        return calculate(weight, feet, inches, age);
     }
 }
