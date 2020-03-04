@@ -6,10 +6,10 @@
  */
 public class MalePerson extends Person {
     public MalePerson(Double weight, Double feet, Double inches, Double age) {
-        super(weight, feet, inches, age);
+        super();
     }
 
-
+    @Override
     public double calculate(Double weight, Double feet, Double inches, Double age) {
         return 66
                 + (6.3 * weight)

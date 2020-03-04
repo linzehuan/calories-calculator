@@ -6,7 +6,7 @@
  */
 public class Person {
 
-    public Person(Double weight, Double feet, Double inches, Double age) {
+    public Person() {
 
     }
 

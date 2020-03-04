@@ -6,7 +6,7 @@
  */
 public class FemalePerson extends Person {
     public FemalePerson(Double weight, Double feet, Double inches, Double age) {
-        super(weight, feet, inches, age);
+        super();
     }
     public double calculate(Double weight, Double feet, Double inches, Double age){
         return 655
