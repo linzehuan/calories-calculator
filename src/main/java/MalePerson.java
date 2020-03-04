@@ -6,16 +6,25 @@
  */
 public class MalePerson extends Person {
 
+    private double baseCalories;
+    private double weightFactor;
+    private double heightFactor;
+    private double ageFactor;
+
     public MalePerson() {
         super();
     }
 
     @Override
     public double calculate(Double weight, Double feet, Double inches, Double age) {
-        return 66
-                + (6.3 * weight)
-                + (12.9 * ((feet * 12)
+        baseCalories = 66;
+        weightFactor = 6.3;
+        heightFactor = 12.9;
+        ageFactor = 6.8;
+        return baseCalories
+                + (weightFactor * weight)
+                + (heightFactor * ((feet * 12)
                 + inches))
-                - (6.8 * age);
+                - (ageFactor * age);
     }
 }
