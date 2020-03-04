@@ -4,10 +4,10 @@
  * @email lzh@kapark.cn
  * @date 2020-03-05 00:37
  */
-public class MalePerson extends Person {
+public class Male extends Person {
 
 
-    public MalePerson() {
+    public Male() {
         super(66, 6.3, 12.9, 6.8);
     }
 
