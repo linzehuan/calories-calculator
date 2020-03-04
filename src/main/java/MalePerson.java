@@ -15,13 +15,5 @@ public class MalePerson extends Person {
         ageFactor = 6.8;
     }
 
-    @Override
-    public double calculate(Double weight, Double feet, Double inches, Double age) {
 
-        return baseCalories
-                + (weightFactor * weight)
-                + (heightFactor * ((feet * 12)
-                + inches))
-                - (ageFactor * age);
-    }
 }

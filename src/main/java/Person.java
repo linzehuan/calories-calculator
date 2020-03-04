@@ -16,8 +16,14 @@ public class Person {
 
     }
 
-    public double calculate(Double weight, Double feet, Double inches, Double age) {
-        return 0;
-    }
+ 
 
+    public double calculate(Double weight, Double feet, Double inches, Double age) {
+
+        return baseCalories
+                + (weightFactor * weight)
+                + (heightFactor * ((feet * 12)
+                + inches))
+                - (ageFactor * age);
+    }
 }
