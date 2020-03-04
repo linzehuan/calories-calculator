@@ -32,18 +32,8 @@ public class CaloriesCalculator {
 
 		JPanel panelAge = initPanelAge();
 
-		JPanel panalCalc = new JPanel(new FlowLayout(FlowLayout.LEFT));		
-		btnCalculate = new JButton("Calculate");
-		btnCalculate.addActionListener(new ActionListener() {
+		JPanel panelCalc = initPanelCalc();
 
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				Calculate();
-			}
-			
-		});
-		panalCalc.add(btnCalculate);
-				
 		JPanel panalCalories = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		panalCalories.add(new JLabel("Recommended Daily Amount:"));
 		txtCalories = new JTextField(8);
@@ -54,13 +44,28 @@ public class CaloriesCalculator {
 		vBox.add(panelHeight);
 		vBox.add(panelWeight);
 		vBox.add(panelAge);
-		vBox.add(panalCalc);
+		vBox.add(panelCalc);
 		vBox.add(panalCalories);		
 		
 		jFrame.setContentPane(vBox);
 		jFrame.pack();
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
+	}
+
+	private JPanel initPanelCalc() {
+		JPanel panelCalc = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		btnCalculate = new JButton("Calculate");
+		btnCalculate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Calculate();
+			}
+
+		});
+		panelCalc.add(btnCalculate);
+		return panelCalc;
 	}
 
 	private JPanel initPanelAge() {
