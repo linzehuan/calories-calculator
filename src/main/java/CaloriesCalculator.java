@@ -99,11 +99,14 @@ public class CaloriesCalculator {
         Double inches = Double.valueOf(txtInches.getText());
         Double age = Double.valueOf(txtAge.getText());
         boolean isMate = rbtnMale.isSelected();
+        double calories ;
         if (isMate) {
-            txtCalories.setText(decimalFormat.format(mateCalculate(weight, feet, inches, age)));
+            calories = mateCalculate(weight, feet, inches, age);
         } else {
-            txtCalories.setText(decimalFormat.format(femaleCalculate(weight, feet, inches, age)));
+            calories = femaleCalculate(weight, feet, inches, age);
         }
+        txtCalories.setText(decimalFormat.format(calories));
+
     }
 
     private double femaleCalculate(Double weight, Double feet, Double inches, Double age) {
