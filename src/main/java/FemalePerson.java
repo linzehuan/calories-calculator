@@ -6,11 +6,6 @@
  */
 public class FemalePerson extends Person {
 
-    private double baseCalories;
-    private double weightFactor;
-    private double heightFactor;
-    private double ageFactor;
-
     public FemalePerson() {
         super();
         baseCalories = 655;

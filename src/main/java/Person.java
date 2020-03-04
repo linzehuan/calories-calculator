@@ -6,7 +6,13 @@
  */
 public class Person {
 
+    protected double baseCalories;
+    protected double weightFactor;
+    protected double heightFactor;
+    protected double ageFactor;
+
     public Person() {
+
 
     }
 
