@@ -5,16 +5,27 @@
  * @date 2020-03-05 00:44
  */
 public class FemalePerson extends Person {
+
+    private double baseCalories;
+    private double weightFactor;
+    private double heightFactor;
+    private double ageFactor;
+
     public FemalePerson() {
         super();
+        baseCalories = 655;
+        weightFactor = 4.3;
+        heightFactor = 4.7;
+        ageFactor = 4.7;
     }
 
     @Override
-    public double calculate(Double weight, Double feet, Double inches, Double age){
-        return 655
-                + (4.3 * weight)
-                + (4.7 * ((feet * 12)
+    public double calculate(Double weight, Double feet, Double inches, Double age) {
+
+        return baseCalories
+                + (weightFactor * weight)
+                + (heightFactor * ((feet * 12)
                 + inches))
-                - (4.7 * age);
+                - (ageFactor * age);
     }
 }
