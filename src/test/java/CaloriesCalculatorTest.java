@@ -20,9 +20,9 @@ public class CaloriesCalculatorTest {
     }
     )
     public void shouldCalculateCaloriesCorrect(boolean isMate, Double weight, Double feet, Double inches, Double age, String expectedCalories) {
-        CaloriesCalculator cc = new CaloriesCalculator();
-        double calculateCalories = cc.calculateCalories(isMate, weight, feet, inches, age);
-        String formatCalculateCalories = cc.format(calculateCalories);
+        CaloriesCalculator caloriesCalculator = new CaloriesCalculator();
+        double calculateCalories = caloriesCalculator.calculateCalories(isMate, weight, feet, inches, age);
+        String formatCalculateCalories = caloriesCalculator.format(calculateCalories);
         assertEquals(expectedCalories, formatCalculateCalories);
 
     }
