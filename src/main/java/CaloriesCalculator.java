@@ -44,8 +44,8 @@ public class CaloriesCalculator {
 
     private JPanel initPanelCalc() {
         JPanel panelCalc = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        btnCalculate = new JButton("Calculate");
-        btnCalculate.addActionListener(event -> Calculate());
+        btnCalculate = new JButton("calculate");
+        btnCalculate.addActionListener(event -> calculate());
         panelCalc.add(btnCalculate);
         return panelCalc;
     }
@@ -93,7 +93,7 @@ public class CaloriesCalculator {
         return panelRadio;
     }
 
-    private void Calculate() {
+    private void calculate() {
         Double weight = Double.valueOf(txtWeight.getText());
         Double feet = Double.valueOf(txtFeet.getText());
         Double inches = Double.valueOf(txtInches.getText());
