@@ -24,16 +24,9 @@ public class CaloriesCalculator {
 		JPanel panelRadio = initPanelRadio();
 
 
-		JPanel panelHeight = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		panelHeight.add(new JLabel(" Height:"));
-		txtFeet = new JTextField("5",8);
-		panelHeight.add(txtFeet);
-		panelHeight.add(new JLabel("ft"));
-		txtInches = new JTextField("1",8);
-		panelHeight.add(txtInches);
-		panelHeight.add(new JLabel("in"));
-		
-		
+		JPanel panelHeight = initPanelHeight();
+
+
 		JPanel panalWeight = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		panalWeight.add(new JLabel("Weight:"));
 		txtWeight = new JTextField("110",8);
@@ -76,6 +69,18 @@ public class CaloriesCalculator {
 		jFrame.pack();
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
+	}
+
+	private JPanel initPanelHeight() {
+		JPanel panelHeight = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panelHeight.add(new JLabel(" Height:"));
+		txtFeet = new JTextField("5",8);
+		panelHeight.add(txtFeet);
+		panelHeight.add(new JLabel("ft"));
+		txtInches = new JTextField("1",8);
+		panelHeight.add(txtInches);
+		panelHeight.add(new JLabel("in"));
+		return panelHeight;
 	}
 
 	private JPanel initPanelRadio() {
