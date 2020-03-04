@@ -10,7 +10,7 @@ public class Person {
 
     }
 
-    public double mateCalculate(Double weight, Double feet, Double inches, Double age) {
+    public double calculate(Double weight, Double feet, Double inches, Double age) {
         return 0;
     }
     public double femaleCalculate(Double weight, Double feet, Double inches, Double age) {

@@ -9,8 +9,8 @@ public class MalePerson extends Person {
         super(weight, feet, inches, age);
     }
 
-    
-    public double mateCalculate(Double weight, Double feet, Double inches, Double age) {
+
+    public double calculate(Double weight, Double feet, Double inches, Double age) {
         return 66
                 + (6.3 * weight)
                 + (12.9 * ((feet * 12)
