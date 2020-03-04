@@ -13,14 +13,15 @@ public class MalePerson extends Person {
 
     public MalePerson() {
         super();
-    }
-
-    @Override
-    public double calculate(Double weight, Double feet, Double inches, Double age) {
         baseCalories = 66;
         weightFactor = 6.3;
         heightFactor = 12.9;
         ageFactor = 6.8;
+    }
+
+    @Override
+    public double calculate(Double weight, Double feet, Double inches, Double age) {
+
         return baseCalories
                 + (weightFactor * weight)
                 + (heightFactor * ((feet * 12)
