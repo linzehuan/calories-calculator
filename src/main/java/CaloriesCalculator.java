@@ -111,11 +111,7 @@ public class CaloriesCalculator {
     public double calculateCalories(boolean isMate, Double weight, Double feet, Double inches, Double age) {
         double calories;
         Person person = isMate?new MalePerson(weight, feet, inches, age):new FemalePerson(weight, feet, inches, age);
-        if (isMate) {
-            calories = person.calculate(weight, feet, inches, age);
-        } else {
-            calories = person.calculate(weight, feet, inches, age);
-        }
+        calories = person.calculate(weight, feet, inches, age);
         return calories;
     }
 
