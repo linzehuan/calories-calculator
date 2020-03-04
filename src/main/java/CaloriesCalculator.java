@@ -21,15 +21,7 @@ public class CaloriesCalculator {
 		jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
-		JPanel panalRadio = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ButtonGroup btnGroup = new ButtonGroup();
-		rbtnMale = new JRadioButton("Male");
-		rbtnFemale = new JRadioButton("Female");
-		rbtnMale.setSelected(true);
-		btnGroup.add(rbtnMale);
-		btnGroup.add(rbtnFemale);
-		panalRadio.add(rbtnMale);
-		panalRadio.add(rbtnFemale);
+		JPanel panalRadio = initPanelRadio();
 
 
 		JPanel panalHeight = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -84,6 +76,19 @@ public class CaloriesCalculator {
 		jFrame.pack();
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
+	}
+
+	private JPanel initPanelRadio() {
+		JPanel panalRadio = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		ButtonGroup btnGroup = new ButtonGroup();
+		rbtnMale = new JRadioButton("Male");
+		rbtnFemale = new JRadioButton("Female");
+		rbtnMale.setSelected(true);
+		btnGroup.add(rbtnMale);
+		btnGroup.add(rbtnFemale);
+		panalRadio.add(rbtnMale);
+		panalRadio.add(rbtnFemale);
+		return panalRadio;
 	}
 
 	private void Calculate() {	
