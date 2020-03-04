@@ -18,7 +18,8 @@ public class CaloriesCalculator {
     DecimalFormat decimalFormat = new DecimalFormat("#.######");
 
     public void InitializeComponent() {
-        JFrame jFrame = new JFrame("CaloriesCalculator");
+        String title = "CaloriesCalculator";
+        JFrame jFrame = new JFrame(title);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         Box vBox = Box.createVerticalBox();
