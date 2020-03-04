@@ -8,7 +8,6 @@ public class FemalePerson extends Person {
 
     public FemalePerson() {
         super(655, 4.3, 4.7, 4.7);
-
     }
 
 }
