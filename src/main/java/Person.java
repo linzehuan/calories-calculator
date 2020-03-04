@@ -12,7 +12,10 @@ public class Person {
     protected double ageFactor;
 
     public Person() {
-
+         baseCalories = 0;
+         weightFactor = 0;
+         heightFactor =0;
+         ageFactor = 0;
 
     }
 
