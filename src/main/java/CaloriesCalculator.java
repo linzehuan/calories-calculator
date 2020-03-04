@@ -103,12 +103,16 @@ public class CaloriesCalculator {
         if (rbtnMale.isSelected()) {
             txtCalories.setText(decimalFormat.format(mateCalculate(weight, feet, inches, age)));
         } else {
-            txtCalories.setText(decimalFormat.format(655
-                    + (4.3 * weight)
-                    + (4.7 * ((feet * 12)
-                    + inches))
-                    - (4.7 * age)));
+            txtCalories.setText(decimalFormat.format(femateCalculate(weight, feet, inches, age)));
         }
+    }
+
+    private double femateCalculate(Double weight, Double feet, Double inches, Double age) {
+        return 655
+                + (4.3 * weight)
+                + (4.7 * ((feet * 12)
+                + inches))
+                - (4.7 * age);
     }
 
     private double mateCalculate(Double weight, Double feet, Double inches, Double age) {
