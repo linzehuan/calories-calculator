@@ -27,11 +27,11 @@ public class CaloriesCalculator {
 		JPanel panelHeight = initPanelHeight();
 
 
-		JPanel panalWeight = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		panalWeight.add(new JLabel("Weight:"));
+		JPanel panelWeight = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panelWeight.add(new JLabel("Weight:"));
 		txtWeight = new JTextField("110",8);
-		panalWeight.add(txtWeight);
-		panalWeight.add(new JLabel("lb"));
+		panelWeight.add(txtWeight);
+		panelWeight.add(new JLabel("lb"));
 		
 		
 		JPanel panalAge = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -60,7 +60,7 @@ public class CaloriesCalculator {
 		Box vBox = Box.createVerticalBox();
 		vBox.add(panelRadio);
 		vBox.add(panelHeight);
-		vBox.add(panalWeight);
+		vBox.add(panelWeight);
 		vBox.add(panalAge);
 		vBox.add(panalCalc);
 		vBox.add(panalCalories);		
