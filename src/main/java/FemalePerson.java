@@ -5,9 +5,11 @@
  * @date 2020-03-05 00:44
  */
 public class FemalePerson extends Person {
-    public FemalePerson(Double weight, Double feet, Double inches, Double age) {
+    public FemalePerson() {
         super();
     }
+
+    @Override
     public double calculate(Double weight, Double feet, Double inches, Double age){
         return 655
                 + (4.3 * weight)

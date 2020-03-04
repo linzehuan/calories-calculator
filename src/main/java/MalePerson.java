@@ -5,7 +5,8 @@
  * @date 2020-03-05 00:37
  */
 public class MalePerson extends Person {
-    public MalePerson(Double weight, Double feet, Double inches, Double age) {
+
+    public MalePerson() {
         super();
     }
 
