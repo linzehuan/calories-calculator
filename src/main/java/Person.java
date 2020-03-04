@@ -6,16 +6,16 @@
  */
 public class Person {
 
-    protected double baseCalories;
-    protected double weightFactor;
-    protected double heightFactor;
-    protected double ageFactor;
+    private double baseCalories;
+    private double weightFactor;
+    private double heightFactor;
+    private double ageFactor;
 
-    public Person() {
-         baseCalories = 0;
-         weightFactor = 0;
-         heightFactor =0;
-         ageFactor = 0;
+    public Person(double baseCalories, double weightFactor, double heightFactor, double ageFactor) {
+         this.baseCalories = baseCalories;
+         this.weightFactor = weightFactor;
+         this.heightFactor =heightFactor;
+         this.ageFactor = ageFactor;
 
     }
 

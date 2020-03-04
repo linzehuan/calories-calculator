@@ -7,11 +7,8 @@
 public class FemalePerson extends Person {
 
     public FemalePerson() {
-        super();
-        baseCalories = 655;
-        weightFactor = 4.3;
-        heightFactor = 4.7;
-        ageFactor = 4.7;
+        super(655, 4.3, 4.7, 4.7);
+
     }
 
 }

@@ -8,11 +8,7 @@ public class MalePerson extends Person {
 
 
     public MalePerson() {
-        super();
-        baseCalories = 66;
-        weightFactor = 6.3;
-        heightFactor = 12.9;
-        ageFactor = 6.8;
+        super(66, 6.3, 12.9, 6.8);
     }
 
 
