@@ -114,30 +114,23 @@ public class CaloriesCalculator {
         } else {
             selectSex = "Female";
         }
-        double calories;
 
-        calories = calculateCalories(weight, inches, feet, age, selectSex);
+        double calories = calculateCalories(weight, inches, feet, age, selectSex);
         txtCalories.setText(decimalFormat.format(calories));
 
     }
 
     public double calculateCalories(Double weight, Double inches, Double feet, Double age, String selectSex) {
-        double calories;
-        double baseCalories;
-        double weightFactor;
-        double heightFactor;
-        double ageFactor;
         int selectSexIndex = sex.indexOf(selectSex);
-        baseCalories = caloriesInfo[selectSexIndex][0];
-        weightFactor = caloriesInfo[selectSexIndex][1];
-        heightFactor = caloriesInfo[selectSexIndex][2];
-        ageFactor = caloriesInfo[selectSexIndex][3];
+        double baseCalories = caloriesInfo[selectSexIndex][0];
+        double weightFactor = caloriesInfo[selectSexIndex][1];
+        double heightFactor = caloriesInfo[selectSexIndex][2];
+        double ageFactor = caloriesInfo[selectSexIndex][3];
 
-        calories = baseCalories
+        return baseCalories
                 + weightFactor * weight
                 + heightFactor * (feet * 12 + inches)
                 - ageFactor * age;
-        return calories;
     }
 
 
