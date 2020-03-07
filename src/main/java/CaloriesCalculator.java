@@ -110,12 +110,12 @@ public class CaloriesCalculator {
         }
         double calories;
 
-        calories = calculateCalories(weight, feet, inches, age, selectSex);
+        calories = calculateCalories(weight, inches, feet, age, selectSex);
         txtCalories.setText(decimalFormat.format(calories));
 
     }
 
-    public double calculateCalories(Double weight, Double feet, Double inches, Double age, String selectSex) {
+    public double calculateCalories(Double weight, Double inches, Double feet, Double age, String selectSex) {
         double calories;
         double baseCalories;
         double weightFactor;
@@ -144,5 +144,9 @@ public class CaloriesCalculator {
     public static void main(String[] args) {
         CaloriesCalculator cc = new CaloriesCalculator();
         cc.InitializeComponent();
+    }
+
+    public String format(double calculateCalories) {
+        return decimalFormat.format(calculateCalories);
     }
 }
