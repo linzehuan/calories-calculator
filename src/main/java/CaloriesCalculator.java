@@ -134,10 +134,10 @@ public class CaloriesCalculator {
             heightFactor = caloriesInfo[selectSexIndex][2];
             ageFactor = caloriesInfo[selectSexIndex][3];
         } else {
-            baseCalories = 655;
-            weightFactor = 4.3;
-            heightFactor = 4.7;
-            ageFactor = 4.7;
+            baseCalories = caloriesInfo[selectSexIndex][0];
+            weightFactor = caloriesInfo[selectSexIndex][1];
+            heightFactor = caloriesInfo[selectSexIndex][2];
+            ageFactor = caloriesInfo[selectSexIndex][3];
         }
 
         calories = baseCalories
