@@ -1,6 +1,4 @@
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import javax.swing.*;
@@ -107,9 +105,18 @@ public class CaloriesCalculator {
         String selectSex = "";
         if (isMate) {
             selectSex = "Male";
+        }else {
+            selectSex = "Female";
         }
         double calories;
 
+        calories = calculateCalories(weight, feet, inches, age, selectSex);
+        txtCalories.setText(decimalFormat.format(calories));
+
+    }
+
+    public double calculateCalories(Double weight, Double feet, Double inches, Double age, String selectSex) {
+        double calories;
         double baseCalories;
         double weightFactor;
         double heightFactor;
@@ -130,8 +137,7 @@ public class CaloriesCalculator {
                 + weightFactor * weight
                 + heightFactor * (feet * 12 + inches)
                 - ageFactor * age;
-        txtCalories.setText(decimalFormat.format(calories));
-
+        return calories;
     }
 
 
