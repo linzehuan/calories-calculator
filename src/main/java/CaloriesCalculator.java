@@ -1,15 +1,11 @@
-import com.google.common.collect.Lists;
-
 import java.awt.FlowLayout;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 
 import javax.swing.*;
 
 public class CaloriesCalculator {
+
 
     private JTextField txtFeet;
     private JTextField txtInches;
@@ -20,10 +16,10 @@ public class CaloriesCalculator {
     private ButtonGroup btnGroup;
 
     public void InitializeComponent() {
+
         String title = "CaloriesCalculator";
         JFrame jFrame = new JFrame(title);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         Box vBox = Box.createVerticalBox();
         vBox.add(initPanelRadio());
         vBox.add(initPanelHeight());
@@ -87,44 +83,19 @@ public class CaloriesCalculator {
     private JPanel initPanelRadio() {
         JPanel panelRadio = new JPanel(new FlowLayout(FlowLayout.LEFT));
         btnGroup = new ButtonGroup();
-        sex.forEach(s -> {
-            JRadioButton sexButton = new JRadioButton(s);
+
+        Arrays.stream(Sex.values()).forEach(sex -> {
+            JRadioButton sexButton = new JRadioButton(sex.name());
             btnGroup.add(sexButton);
             panelRadio.add(sexButton);
         });
+
         btnGroup.getElements().nextElement().setSelected(true);
         return panelRadio;
     }
 
-    private final List<String> sex = Lists.newArrayList(
-            "Male",
-            "Female",
-            "x1",
-            "x2",
-            "x3",
-            "x4",
-            "x5"
-    );
-
-    private final double[][] caloriesInfo = {
-            {66, 6.3, 12.9, 6.8},
-            {655, 4.3, 4.7, 4.7},
-            {655, 4.3, 4.7, 4.7},
-            {655, 4.3, 4.7, 4.7},
-            {655, 4.3, 4.7, 4.7},
-            {655, 4.3, 4.7, 4.7},
-            {655, 4.3, 4.7, 4.7}
-    };
-
-    private String getSelectedSex() {
-        Enumeration<AbstractButton> elements = btnGroup.getElements();
-        while (elements.hasMoreElements()) {
-            AbstractButton button = elements.nextElement();
-            if (button.isSelected()) {
-                return button.getText();
-            }
-        }
-        return "";
+    public double calculateCalories(Double weight, Double inches, Double feet, Double age, Sex selectSex) {
+        return CalorieInfo.calculateCalories(weight, inches, feet, age, selectSex);
     }
 
     private void Calculate() {
@@ -133,28 +104,24 @@ public class CaloriesCalculator {
         Double inches = Double.valueOf(txtInches.getText());
         Double age = Double.valueOf(txtAge.getText());
 
-        String selectSex = getSelectedSex();
-
+        Sex selectSex = getSelectedSex();
         double calories = calculateCalories(weight, inches, feet, age, selectSex);
         txtCalories.setText(decimalFormat.format(calories));
-
     }
 
-    public double calculateCalories(Double weight, Double inches, Double feet, Double age, String selectSex) {
-        int selectSexIndex = getSelectSexIndex(selectSex);
-        double baseCalories = caloriesInfo[selectSexIndex][0];
-        double weightFactor = caloriesInfo[selectSexIndex][1];
-        double heightFactor = caloriesInfo[selectSexIndex][2];
-        double ageFactor = caloriesInfo[selectSexIndex][3];
-
-        return baseCalories
-                + weightFactor * weight
-                + heightFactor * (feet * 12 + inches)
-                - ageFactor * age;
+    private Sex getSelectedSex() {
+        return Sex.valueOf(getSelectedSexText());
     }
 
-    private int getSelectSexIndex(String selectSex) {
-        return sex.indexOf(selectSex);
+    private String getSelectedSexText() {
+        Enumeration<AbstractButton> elements = btnGroup.getElements();
+        while (elements.hasMoreElements()) {
+            AbstractButton button = elements.nextElement();
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+        return "";
     }
 
 
