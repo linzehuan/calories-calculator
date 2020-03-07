@@ -104,13 +104,17 @@ public class CaloriesCalculator {
         Double inches = Double.valueOf(txtInches.getText());
         Double age = Double.valueOf(txtAge.getText());
         boolean isMate = rbtnMale.isSelected();
+        String selectSex = "";
+        if (isMate) {
+            selectSex = "Male";
+        }
         double calories;
 
         double baseCalories;
         double weightFactor;
         double heightFactor;
         double ageFactor;
-        if (isMate) {
+        if (selectSex.equals("Male")) {
             baseCalories = 66;
             weightFactor = 6.3;
             heightFactor = 12.9;
