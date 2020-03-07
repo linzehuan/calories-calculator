@@ -1,19 +1,23 @@
+import com.google.common.collect.Lists;
+
 import java.awt.FlowLayout;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.List;
 
 import javax.swing.*;
 
 public class CaloriesCalculator {
 
-    private JRadioButton rbtnMale;
-    private JRadioButton rbtnFemale;
     private JTextField txtFeet;
     private JTextField txtInches;
     private JTextField txtWeight;
     private JTextField txtAge;
     private JTextField txtCalories;
-    private JButton btnCalculate;
     DecimalFormat decimalFormat = new DecimalFormat("#.######");
+    private ButtonGroup btnGroup;
 
     public void InitializeComponent() {
         String title = "CaloriesCalculator";
@@ -44,8 +48,8 @@ public class CaloriesCalculator {
 
     private JPanel initPanelCalc() {
         JPanel panelCalc = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        btnCalculate = new JButton("calculate");
-        btnCalculate.addActionListener(event -> calculate());
+        JButton btnCalculate = new JButton("Calculate");
+        btnCalculate.addActionListener(event -> Calculate());
         panelCalc.add(btnCalculate);
         return panelCalc;
     }
@@ -82,40 +86,84 @@ public class CaloriesCalculator {
 
     private JPanel initPanelRadio() {
         JPanel panelRadio = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        ButtonGroup btnGroup = new ButtonGroup();
-        rbtnMale = new JRadioButton("Male");
-        rbtnFemale = new JRadioButton("Female");
-        rbtnMale.setSelected(true);
-        btnGroup.add(rbtnMale);
-        btnGroup.add(rbtnFemale);
-        panelRadio.add(rbtnMale);
-        panelRadio.add(rbtnFemale);
+        btnGroup = new ButtonGroup();
+        sex.forEach(s -> {
+            JRadioButton sexButton = new JRadioButton(s);
+            btnGroup.add(sexButton);
+            panelRadio.add(sexButton);
+        });
+        btnGroup.getElements().nextElement().setSelected(true);
         return panelRadio;
     }
 
-    private void calculate() {
+    private final List<String> sex = Lists.newArrayList(
+            "Male",
+            "Female",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5"
+    );
+
+    private final double[][] caloriesInfo = {
+            {66, 6.3, 12.9, 6.8},
+            {655, 4.3, 4.7, 4.7},
+            {655, 4.3, 4.7, 4.7},
+            {655, 4.3, 4.7, 4.7},
+            {655, 4.3, 4.7, 4.7},
+            {655, 4.3, 4.7, 4.7},
+            {655, 4.3, 4.7, 4.7}
+    };
+
+    private String getSelectedSex() {
+        Enumeration<AbstractButton> elements = btnGroup.getElements();
+        while (elements.hasMoreElements()) {
+            AbstractButton button = elements.nextElement();
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+        return "";
+    }
+
+    private void Calculate() {
         Double weight = Double.valueOf(txtWeight.getText());
         Double feet = Double.valueOf(txtFeet.getText());
         Double inches = Double.valueOf(txtInches.getText());
         Double age = Double.valueOf(txtAge.getText());
-        boolean isMate = rbtnMale.isSelected();
-        double calories = calculateCalories(isMate, weight, feet, inches, age);
+
+        String selectSex = getSelectedSex();
+
+        double calories = calculateCalories(weight, inches, feet, age, selectSex);
         txtCalories.setText(decimalFormat.format(calories));
 
     }
 
-    public String format(double doubleValue) {
-        return decimalFormat.format(doubleValue);
+    public double calculateCalories(Double weight, Double inches, Double feet, Double age, String selectSex) {
+        int selectSexIndex = getSelectSexIndex(selectSex);
+        double baseCalories = caloriesInfo[selectSexIndex][0];
+        double weightFactor = caloriesInfo[selectSexIndex][1];
+        double heightFactor = caloriesInfo[selectSexIndex][2];
+        double ageFactor = caloriesInfo[selectSexIndex][3];
+
+        return baseCalories
+                + weightFactor * weight
+                + heightFactor * (feet * 12 + inches)
+                - ageFactor * age;
     }
 
-    public double calculateCalories(boolean isMate, Double weight, Double feet, Double inches, Double age) {
-        Person person = isMate ? new Male() : new Female();
-        return person.calculate(weight, feet, inches, age);
+    private int getSelectSexIndex(String selectSex) {
+        return sex.indexOf(selectSex);
     }
 
 
     public static void main(String[] args) {
         CaloriesCalculator cc = new CaloriesCalculator();
         cc.InitializeComponent();
+    }
+
+    public String format(double calculateCalories) {
+        return decimalFormat.format(calculateCalories);
     }
 }
