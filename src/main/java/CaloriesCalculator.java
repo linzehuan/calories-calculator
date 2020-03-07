@@ -128,17 +128,10 @@ public class CaloriesCalculator {
         double heightFactor;
         double ageFactor;
         int selectSexIndex = sex.indexOf(selectSex);
-        if (selectSex.equals("Male")) {
-            baseCalories = caloriesInfo[selectSexIndex][0];
-            weightFactor = caloriesInfo[selectSexIndex][1];
-            heightFactor = caloriesInfo[selectSexIndex][2];
-            ageFactor = caloriesInfo[selectSexIndex][3];
-        } else {
-            baseCalories = caloriesInfo[selectSexIndex][0];
-            weightFactor = caloriesInfo[selectSexIndex][1];
-            heightFactor = caloriesInfo[selectSexIndex][2];
-            ageFactor = caloriesInfo[selectSexIndex][3];
-        }
+        baseCalories = caloriesInfo[selectSexIndex][0];
+        weightFactor = caloriesInfo[selectSexIndex][1];
+        heightFactor = caloriesInfo[selectSexIndex][2];
+        ageFactor = caloriesInfo[selectSexIndex][3];
 
         calories = baseCalories
                 + weightFactor * weight
