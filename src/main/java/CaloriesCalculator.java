@@ -95,7 +95,8 @@ public class CaloriesCalculator {
         return panelRadio;
     }
 
-
+    private String[] sex = {"Male,Female"};
+    private double[][] info = {{66, 6.3, 12.9, 6.8},{655,4.3,4.7,4.7}};
 
     private void Calculate() {
         Double weight = Double.valueOf(txtWeight.getText());
