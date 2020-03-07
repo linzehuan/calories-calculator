@@ -109,20 +109,18 @@ public class CaloriesCalculator {
             double heightFactor = 12.9;
             double ageFactor = 6.8;
             calories = baseCalories
-                    + (weightFactor * weight)
-                    + (heightFactor * ((feet * 12)
-                    + inches))
-                    - (ageFactor * age);
+                    + weightFactor * weight
+                    + heightFactor * (feet * 12 + inches)
+                    - ageFactor * age;
         } else {
             int baseCalories = 655;
             double weightFactor = 4.3;
             double heightFactor = 4.7;
             double ageFactor = 4.7;
             calories = baseCalories
-                    + (weightFactor * weight)
-                    + (heightFactor * ((feet * 12)
-                    + inches))
-                    - (ageFactor * age);
+                    + weightFactor * weight
+                    + heightFactor * (feet * 12 + inches)
+                    - ageFactor * age;
         }
         txtCalories.setText(decimalFormat.format(calories));
 
