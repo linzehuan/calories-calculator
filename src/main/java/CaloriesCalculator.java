@@ -1,5 +1,10 @@
+import com.google.common.collect.Lists;
+
 import java.awt.FlowLayout;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -93,8 +98,9 @@ public class CaloriesCalculator {
         return panelRadio;
     }
 
-    private String[] sex = {"Male,Female"};
-    private double[][] info = {{66, 6.3, 12.9, 6.8},{655,4.3,4.7,4.7}};
+    private List<String> sex = Lists.newArrayList("Male", "Female");
+
+    private double[][] caloriesInfo = {{66, 6.3, 12.9, 6.8}, {655, 4.3, 4.7, 4.7}};
 
     private void Calculate() {
         Double weight = Double.valueOf(txtWeight.getText());
@@ -105,7 +111,7 @@ public class CaloriesCalculator {
         String selectSex = "";
         if (isMate) {
             selectSex = "Male";
-        }else {
+        } else {
             selectSex = "Female";
         }
         double calories;
@@ -121,11 +127,12 @@ public class CaloriesCalculator {
         double weightFactor;
         double heightFactor;
         double ageFactor;
+        int selectSexIndex = sex.indexOf(selectSex);
         if (selectSex.equals("Male")) {
-            baseCalories = 66;
-            weightFactor = 6.3;
-            heightFactor = 12.9;
-            ageFactor = 6.8;
+            baseCalories = caloriesInfo[selectSexIndex][0];
+            weightFactor = caloriesInfo[selectSexIndex][1];
+            heightFactor = caloriesInfo[selectSexIndex][2];
+            ageFactor = caloriesInfo[selectSexIndex][3];
         } else {
             baseCalories = 655;
             weightFactor = 4.3;
