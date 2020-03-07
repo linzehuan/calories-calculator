@@ -16,7 +16,9 @@ public class CaloriesCalculatorTest {
             "Male,110,5,1,12,1464.3",
             "Male,180,7,2,42,2023.8",
             "Female,110,5,1,12,1358.3",
-            "Female,120,6,0,39,1326.1"
+            "Female,120,6,0,39,1326.1" ,
+            "x3,120,6,0,39,1326.1" ,
+            "x5,120,6,0,39,1326.1"
     }
     )
     public void shouldCalculateCaloriesCorrect(String sex, Double weight, Double feet, Double inches, Double age, String expectedCalories) {
