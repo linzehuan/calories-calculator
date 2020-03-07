@@ -6,6 +6,9 @@ import javax.swing.*;
 
 public class CaloriesCalculator {
 
+    public CaloriesCalculator(){
+        initCaloriesInfo();
+    }
     private JTextField txtFeet;
     private JTextField txtInches;
     private JTextField txtWeight;
@@ -15,7 +18,7 @@ public class CaloriesCalculator {
     private ButtonGroup btnGroup;
 
     public void InitializeComponent() {
-        initCaloriesInfo();
+
         String title = "CaloriesCalculator";
         JFrame jFrame = new JFrame(title);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
