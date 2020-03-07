@@ -96,23 +96,34 @@ public class CaloriesCalculator {
     }
 
 
-    private final int BASE_CALORIES_INDEX = 0;
-    private final int WEIGHT_FACTOR_INDEX = 1;
-    private final int HEIGHT_FACTOR_INDEX = 2;
-    private final int AGE_FACTOR_INDEX = 3;
-
-    private final LinkedHashMap<String, double[]> sexCaloriesInfo = new LinkedHashMap<>();
+    private final LinkedHashMap<String, CalorieInfo> sexCaloriesInfo = new LinkedHashMap<>();
 
     private void initCaloriesInfo() {
-        sexCaloriesInfo.put("Male", new double[]{66, 6.3, 12.9, 6.8});
-        sexCaloriesInfo.put("Female", new double[]{655, 4.3, 4.7, 4.7});
-        sexCaloriesInfo.put("x1", new double[]{655, 4.3, 4.7, 4.7});
-        sexCaloriesInfo.put("x2", new double[]{655, 4.3, 4.7, 4.7});
-        sexCaloriesInfo.put("x3", new double[]{655, 4.3, 4.7, 4.7});
-        sexCaloriesInfo.put("x4", new double[]{655, 4.3, 4.7, 4.7});
-        sexCaloriesInfo.put("x5", new double[]{655, 4.3, 4.7, 4.7});
+        sexCaloriesInfo.put("Male", new CalorieInfo(66, 6.3, 12.9, 6.8));
+        sexCaloriesInfo.put("Female", new CalorieInfo(655, 4.3, 4.7, 4.7));
+        sexCaloriesInfo.put("x1", new CalorieInfo(655, 4.3, 4.7, 4.7));
+        sexCaloriesInfo.put("x2", new CalorieInfo(655, 4.3, 4.7, 4.7));
+        sexCaloriesInfo.put("x3", new CalorieInfo(655, 4.3, 4.7, 4.7));
+        sexCaloriesInfo.put("x4", new CalorieInfo(655, 4.3, 4.7, 4.7));
+        sexCaloriesInfo.put("x5", new CalorieInfo(655, 4.3, 4.7, 4.7));
     }
 
+
+    public double calculateCalories(Double weight, Double inches, Double feet, Double age, String selectSex) {
+        CalorieInfo caloriesInfo = sexCaloriesInfo.get(selectSex);
+        return caloriesInfo.calculate(weight, inches, feet, age);
+    }
+
+    private void Calculate() {
+        Double weight = Double.valueOf(txtWeight.getText());
+        Double feet = Double.valueOf(txtFeet.getText());
+        Double inches = Double.valueOf(txtInches.getText());
+        Double age = Double.valueOf(txtAge.getText());
+
+        String selectSex = getSelectedSex();
+        double calories = calculateCalories(weight, inches, feet, age, selectSex);
+        txtCalories.setText(decimalFormat.format(calories));
+    }
 
     private String getSelectedSex() {
         Enumeration<AbstractButton> elements = btnGroup.getElements();
@@ -125,34 +136,7 @@ public class CaloriesCalculator {
         return "";
     }
 
-    private void Calculate() {
-        Double weight = Double.valueOf(txtWeight.getText());
-        Double feet = Double.valueOf(txtFeet.getText());
-        Double inches = Double.valueOf(txtInches.getText());
-        Double age = Double.valueOf(txtAge.getText());
 
-        String selectSex = getSelectedSex();
-
-        double calories = calculateCalories(weight, inches, feet, age, selectSex);
-        txtCalories.setText(decimalFormat.format(calories));
-
-    }
-
-
-
-    public double calculateCalories(Double weight, Double inches, Double feet, Double age, String selectSex) {
-        double[] caloriesInfo = sexCaloriesInfo.get(selectSex);
-
-        double baseCalories = caloriesInfo[BASE_CALORIES_INDEX];
-        double weightFactor = caloriesInfo[WEIGHT_FACTOR_INDEX];
-        double heightFactor = caloriesInfo[HEIGHT_FACTOR_INDEX];
-        double ageFactor = caloriesInfo[AGE_FACTOR_INDEX];
-
-        return baseCalories
-                + weightFactor * weight
-                + heightFactor * (feet * 12 + inches)
-                - ageFactor * age;
-    }
 
 
     public static void main(String[] args) {
