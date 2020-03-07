@@ -95,6 +95,8 @@ public class CaloriesCalculator {
         return panelRadio;
     }
 
+
+
     private void Calculate() {
         Double weight = Double.valueOf(txtWeight.getText());
         Double feet = Double.valueOf(txtFeet.getText());
@@ -103,25 +105,26 @@ public class CaloriesCalculator {
         boolean isMate = rbtnMale.isSelected();
         double calories;
 
+        double baseCalories;
+        double weightFactor;
+        double heightFactor;
+        double ageFactor;
         if (isMate) {
-            double baseCalories = 66;
-            double weightFactor = 6.3;
-            double heightFactor = 12.9;
-            double ageFactor = 6.8;
-            calories = baseCalories
-                    + weightFactor * weight
-                    + heightFactor * (feet * 12 + inches)
-                    - ageFactor * age;
+            baseCalories = 66;
+            weightFactor = 6.3;
+            heightFactor = 12.9;
+            ageFactor = 6.8;
         } else {
-            int baseCalories = 655;
-            double weightFactor = 4.3;
-            double heightFactor = 4.7;
-            double ageFactor = 4.7;
-            calories = baseCalories
-                    + weightFactor * weight
-                    + heightFactor * (feet * 12 + inches)
-                    - ageFactor * age;
+            baseCalories = 655;
+            weightFactor = 4.3;
+            heightFactor = 4.7;
+            ageFactor = 4.7;
         }
+
+        calories = baseCalories
+                + weightFactor * weight
+                + heightFactor * (feet * 12 + inches)
+                - ageFactor * age;
         txtCalories.setText(decimalFormat.format(calories));
 
     }
